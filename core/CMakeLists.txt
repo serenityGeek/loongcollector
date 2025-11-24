@@ -24,15 +24,15 @@ if (CMAKE_SYSTEM_NAME MATCHES "Linux")
 endif ()
 
 # Options.
-option(BUILD_LOGTAIL "Build Logtail executable and tools" ON)
+option(BUILD_LOGTAIL "Build Logtail executable and tools" OFF)
 # Used under the Android environment.
-option(BUILD_LOGTAIL_SHARED_LIBRARY "Build Logtail shared library")
+option(BUILD_LOGTAIL_SHARED_LIBRARY "Build Logtail shared library" ON)
 option(ENABLE_ENTERPRISE "enable enterprise feature")
 cmake_dependent_option(ENABLE_COMPATIBLE_MODE "Build Logtail in compatible mode (for low version Linux)" OFF "LINUX" OFF)
 cmake_dependent_option(ENABLE_STATIC_LINK_CRT "Build Logtail by linking CRT statically" OFF "LINUX" OFF)
 cmake_dependent_option(ENABLE_CORP_FEATURE "Enable corp feature" OFF "ENABLE_ENTERPRISE" OFF)
 option(WITHOUTGDB "Build Logtail without gdb")
-option(WITHSPL "Build Logtail and UT with SPL" ON)
+option(WITHSPL "Build Logtail and UT with SPL" OFF)
 option(BUILD_LOGTAIL_UT "Build unit test for Logtail")
 cmake_dependent_option(ENABLE_ADDRESS_SANITIZER "Enable address sanitizer" ON "CMAKE_BUILD_TYPE STREQUAL Debug;NOT ANDROID" OFF)
 set(PROVIDER_PATH ${CMAKE_CURRENT_SOURCE_DIR}/provider CACHE PATH "Path to the provider module") # external provider path can be set with -DPROVIDER_PATH

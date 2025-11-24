@@ -280,6 +280,7 @@ func (did *DockerInfoDetail) IsTimeout() bool {
 	nowTime := time.Now()
 	if nowTime.Sub(did.lastUpdateTime) > fetchAllSuccessTimeout ||
 		(did.deleteFlag && nowTime.Sub(did.lastUpdateTime) > ContainerInfoDeletedTimeout) {
+		logger.Infof(context.Background(), "Container %s is timeout, lastUpdateTime: %s", did.IDPrefix(), did.lastUpdateTime)
 		return true
 	}
 	return false
