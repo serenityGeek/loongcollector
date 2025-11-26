@@ -220,7 +220,8 @@ func (c *ContainerDiscoverManager) Init() bool {
 		if err := util.InitFromEnvInt("DOCKER_FETCH_ALL_SUCCESS_TIMEOUT", &timeoutSec, timeoutSec); err != nil {
 			c.LogAlarm(err, "initialize env DOCKER_FETCH_ALL_SUCCESS_TIMEOUT error")
 		}
-		if timeoutSec > int(FetchAllInterval.Seconds()) && timeoutSec <= 3600*24 {
+		// if timeoutSec > int(FetchAllInterval.Seconds()) && timeoutSec <= 3600*24 {
+		if timeoutSec > int(FetchAllInterval.Seconds()) {
 			fetchAllSuccessTimeout = time.Duration(timeoutSec) * time.Second
 		}
 	}
