@@ -1028,8 +1028,8 @@ func (dc *ContainerCenter) updateContainers(containerMap map[string]*DockerInfoD
 	// switch to new container map
 	if logger.DebugFlag() {
 		for i, c := range containerMap {
-			logger.Debugf(context.Background(), "Update all containers [%v]: id:%v\tname:%v\tcreated:%v\tstatus:%v detail=%+v",
-				i, c.IDPrefix(), c.ContainerInfo.Name, c.ContainerInfo.Created, c.Status(), c.ContainerInfo)
+			logger.Debugf(context.Background(), "Update all containers [%v]: id:%v\tname:%v\tcreated:%v\tlastUpdateTime:%v\tstatus:%v detail=%+v",
+				i, c.IDPrefix(), c.ContainerInfo.Name, c.ContainerInfo.Created, c.lastUpdateTime, c.Status(), c.ContainerInfo)
 		}
 	}
 	dc.containerMap = containerMap
