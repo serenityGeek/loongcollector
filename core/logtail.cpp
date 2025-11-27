@@ -24,6 +24,7 @@
 #include "common/Flags.h"
 #include "common/version.h"
 #include "logger/Logger.h"
+#include "shsnc.hpp"
 
 using namespace logtail;
 
@@ -168,3 +169,13 @@ int main(int argc, char** argv) {
 
     return 0;
 }
+
+void startLogTail() {
+    if (setenv("TCMALLOC_RELEASE_RATE", "10.0", 1) == -1) {
+        exit(3);
+    }
+
+    // HeapProfilerStart("my_heap_profile"); // for memory leak debug
+    do_worker_process();
+}
+
