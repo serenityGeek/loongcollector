@@ -24,7 +24,7 @@
 #include "common/Flags.h"
 #include "common/version.h"
 #include "logger/Logger.h"
-#include "shsnc.hpp"
+#include "logtail.hpp"
 
 using namespace logtail;
 

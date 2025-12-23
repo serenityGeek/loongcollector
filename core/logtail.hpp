@@ -1,5 +1,5 @@
-#ifndef SHSNC_HPP
-#define SHSNC_HPP
+#ifndef LOGTAIL_HPP
+#define LOGTAIL_HPP
 
 #ifdef __cplusplus
 extern "C" {
@@ -12,4 +12,4 @@ void startLogTail();
 }
 #endif
 
-#endif // SHSNC_HPP
+#endif // LOGTAIL_HPP
